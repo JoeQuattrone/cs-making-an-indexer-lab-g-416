@@ -3,6 +3,7 @@ package com.flatironschool.javacs;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 
 import org.jsoup.nodes.Node;
@@ -23,7 +24,7 @@ public class TermCounter {
 	
 	public TermCounter(String label) {
 		this.label = label;
-		this.map = new HashMap<String, Integer>();
+		this.map = new HashMap<>();
 	}
 	
 	public String getLabel() {
@@ -36,8 +37,7 @@ public class TermCounter {
 	 * @return
 	 */
 	public int size() {
-        // TODO: fill this in.
-		return -1;
+		return map.values().stream().reduce(0, Integer::sum);
 	}
 
 	/**
